@@ -83,9 +83,10 @@ const FAQ = () => {
                     <p>If you've forgotten your password, simply click on the 'Forgot Password' link on the login page and follow the instructions to reset it.</p>
                 </div>
                 <div className="faq-item">
-                    <h3>How can I contact support?</h3>
-                    <p>If you need help, please reach out to our support team through the 'Contact Us' section located in the footer of the website.</p>
-                </div>
+    <h3>How do I access the forum?</h3>
+    <p>To participate in discussions on our forum, you need to sign up for an account. Once registered, you can join conversations, ask questions, and share insights with the community.</p>
+</div>
+
             </div>
             <div className="footer">
                 <div className="left-footer">

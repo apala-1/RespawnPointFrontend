@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react"; 
 import { useNavigate } from "react-router-dom";  
 import axios from "axios";
-import "../Featured/featured.css";
+import "./Reviews.css";
 
 const Reviews = () => {
   const [games, setGames] = useState([]);
@@ -34,7 +34,7 @@ const Reviews = () => {
   
 
   return (
-    <div className="featured-page">
+    <div className="review-page">
          <div className="navbar">
              <div className="navbar-left">
                  <h1>RESPAWN POINT</h1>
@@ -82,7 +82,7 @@ const Reviews = () => {
              </button>
          </div>
 
-      <div className="featuredtitle">
+      <div className="reviewtitle">
         <h1 className="h1">Reviews</h1>
       </div>
 

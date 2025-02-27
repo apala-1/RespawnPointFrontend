@@ -170,7 +170,7 @@ a{
 
 .reviewtitle{
     width: 100%;
-    background-image: linear-gradient(to right, rgba(255, 39, 39, 0.427),white,  rgba(255, 39, 39, 0.427));
+    background-image: linear-gradient(to right, tomato, white, tomato);
 }
 
 .footer{

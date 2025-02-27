@@ -2,14 +2,30 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "./Login.css";
 import axios from "axios";
+import { FaEye, FaEyeSlash } from "react-icons/fa";
 
 const Login = () => {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
+    const [showPassword, setShowPassword] = useState(false);
     const navigate = useNavigate();
+
+    const validateEmail = (email) => {
+        return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+    };
 
     const handleSubmit = async (event) => {
         event.preventDefault();
+
+        if (!validateEmail(email)) {
+            alert("Please enter a valid email address.");
+            return;
+        }
+
+        if (password.length < 6) {
+            alert("Password must be at least 6 characters long.");
+            return;
+        }
 
         try {
             const response = await axios.post("http://localhost:5000/auth/login", {
@@ -21,10 +37,9 @@ const Login = () => {
 
             if (response.data.token) {
                 const user = response.data.user;
-
                 localStorage.setItem("user", JSON.stringify(user));
                 localStorage.setItem("token", response.data.token);
-console.log("Token saved:", response.data.token); // Debugging
+                console.log("Token saved:", response.data.token);
 
                 if (user.role === "user") {
                     alert("User Login Successful!");
@@ -34,11 +49,11 @@ console.log("Token saved:", response.data.token); // Debugging
                     navigate("/adminlogin");
                 }
             } else {
-                alert("Login Failed. Invalid email or password.");
+                alert("Invalid email or password. Please try again.");
             }
         } catch (error) {
             console.error("Login error:", error);
-            alert("An error occurred. Please try again.");
+            alert(error.response?.data?.message || "An error occurred. Please try again.");
         }
     };
 
@@ -54,13 +69,22 @@ console.log("Token saved:", response.data.token); // Debugging
                         placeholder="Email"
                         required
                     />
-                    <input
-                        type="password"
-                        value={password}
-                        onChange={(e) => setPassword(e.target.value)}
-                        placeholder="Password"
-                        required
-                    />
+                    <div className="password-container">
+                        <input
+                            type={showPassword ? "text" : "password"}
+                            value={password}
+                            onChange={(e) => setPassword(e.target.value)}
+                            placeholder="Password"
+                            required
+                        />
+                        <button
+                            type="button"
+                            className="eye-icon"
+                            onClick={() => setShowPassword(!showPassword)}
+                        >
+                            {showPassword ? <FaEyeSlash /> : <FaEye />}
+                        </button>
+                    </div>
                     <button type="submit">Log In</button>
                     <div>
                         <a href="/forgot">Forgot your password?</a>

@@ -71,11 +71,11 @@ const HomePage = () => {
                     <h1 className="featured-games-title">Featured Games</h1>
                     <p className="see-all-featured-games" onClick={() => navigate("/login")}>See all &nbsp;<i className="fa-solid fa-arrow-right"></i></p>
                     <div className="shown-games">
-                        <div className="first-game-shown">
+                        <div className="first-game-shown" onClick={() => navigate("/login")}>
                             <h1>Minecraft</h1>
                             <p>blah blah blah</p>
                         </div>
-                        <div className="second-game-shown">
+                        <div className="second-game-shown" onClick={() => navigate("/login")}>
                             <h1>Call of Duty</h1>
                             <p>blah blah blah</p>
                         </div>

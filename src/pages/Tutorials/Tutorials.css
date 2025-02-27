@@ -106,7 +106,7 @@ a{
 
 .tutorialtitle{
     width: 100%;
-    background-image: linear-gradient(to right, rgba(255, 39, 39, 0.427),white,  rgba(255, 39, 39, 0.427));
+    background-image: linear-gradient(to right, tomato, white, tomato);
 }
 
 .footer{
@@ -419,19 +419,20 @@ a{
     justify-content: center;
     gap: 20px;
     padding: 20px;
-    padding-bottom: 30px;
+    padding-bottom: 50px;
     flex-wrap: wrap;
     margin-left: 30px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5), 0 0 20px rgba(255, 0, 0, 0.3);
     border-radius: 20px;
-    background: radial-gradient(circle at center, rgba(255, 0, 0, 0.2), rgba(0, 0, 0, 0.9));
+    background: radial-gradient(circle at center, rgba(255, 0, 0, 0.2), rgba(255, 255, 255, 0.224));
 }
 
 /* Tutorial Card - Remove Harsh Background, Add Transparency */
 .tutorial-card {
     margin-top: 2rem;
-    background: rgba(255, 0, 0, 0.15); /* Softer transparent red */
+    background: rgba(247, 0, 0, 0.15); /* Softer transparent red */
     border-radius: 12px;
-    box-shadow: 0 0 10px rgba(255, 0, 0, 0.5), 0 0 20px rgba(255, 0, 0, 0.3);
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.5), 0 0 20px rgba(255, 0, 0, 0.3);
     overflow: hidden;
     width: 270px;
     text-align: center;
@@ -455,7 +456,7 @@ a{
     font-family: "Orbitron", sans-serif;
     letter-spacing: 2px;
     text-transform: uppercase;
-    font-size: 1.3rem;
+    font-size: 1.0rem;
     text-shadow: 0 0 5px red, 0 0 10px red;
     transition: color 0.2s ease-in-out;
 }
@@ -484,7 +485,7 @@ a{
 }
 
 .create-tutorial-btn .create-btn {
-    margin-top: 20px;
+    margin-top: 40px;
     padding: 12px 24px;
     border-radius: 10px;
     border: none;
@@ -496,7 +497,7 @@ a{
     text-transform: uppercase;
     cursor: pointer;
     transition: all 0.3s ease-in-out;
-    margin-bottom: 30px;
+    margin-bottom: 50px;
 }
 
 /* Hover Effect */
@@ -508,7 +509,8 @@ a{
 
 /* 🛠 UPDATE BUTTON */
 .tutorial-section .updateBtn {
-    padding: 12px 24px;
+    padding: 8px 16px;
+    margin: 20px 5px;
     border-radius: 10px;
     border: none;
     color: white;

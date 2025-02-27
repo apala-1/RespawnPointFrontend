@@ -12,6 +12,111 @@
     background-image: linear-gradient(to right,black, rgb(182, 231, 223), #343333, rgb(255, 211, 211), black);
 }
 
+.featured .shown-games{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin: 10px 40px;
+    height: 400px;
+}
+
+@keyframes HoveringEffectOne {
+    0% {transform: rotate(0deg) scale(1);}
+    50%{transform: rotate(-3deg) scale(0.9);}
+    100%{transform: rotate(-4deg) scale(0.9);}
+}
+
+@keyframes HoveringEffectTwo {
+    0% {transform: rotate(0deg) scale(1);}
+    50%{transform: rotate(3deg) scale(0.9);}
+    100%{transform: rotate(4deg) scale(0.9);}
+}
+
+@keyframes reverseHoveringOne {
+    0% {transform: rotate(-4deg) scale(0.9);}
+    50%{transform: rotate(-3deg) scale(0.9);}
+    100%{transform: rotate(0deg) scale(1);}
+}
+
+@keyframes reverseHoveringTwo {
+    0% {transform: rotate(4deg) scale(0.9);}
+    50%{transform: rotate(3deg) scale(0.9);}
+    100%{transform: rotate(0deg) scale(1);}
+}
+
+.featured .shown-games .first-game-shown{
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-start;
+    flex-direction: column;
+    border-radius: 20px;
+    width: 38%;
+    height: 50%;
+    background-image: url(../../assets/images/minecraft-img.jpeg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    margin-right: 10px;
+    box-shadow: 0px 0px 20px 4px hsl(180, 100%, 81%);
+    cursor: pointer;
+    animation: reverseHoveringOne 2s forwards;
+}
+
+.featured .shown-games .second-game-shown{
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-start;
+    flex-direction: column;
+    border-radius: 20px;
+    cursor: pointer;
+    width: 38%;
+    height: 50%;
+    background-image: url(../../assets/images/callOfDuty-img.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    box-shadow: 0px 0px 20px 4px hsl(60, 100%, 88%);
+    animation: reverseHoveringTwo 2s forwards;
+}
+
+.featured .shown-games .first-game-shown:hover{
+    animation-name: HoveringEffectOne;
+    animation-duration: 2s;
+    animation-fill-mode: forwards;
+}
+
+.featured .shown-games .second-game-shown:hover{
+    animation-name: HoveringEffectTwo;
+    animation-duration: 2s;
+    animation-fill-mode: forwards;
+}
+
+.featured .shown-games .first-game-shown h1{
+    font-family: "Keania";
+    margin: 20px;
+    color: #fff;
+    text-shadow: 2px 2px #000;
+}
+
+.featured .shown-games .second-game-shown h1{
+    font-family: "Keania";
+    margin: 20px;
+    color: #fff;
+    text-shadow: 2px 2px #000;
+}
+
+.featured .shown-games .first-game-shown p{
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    margin-bottom: 20px;
+    margin-left: 20px;
+    color: #fff;
+}
+
+.featured .shown-games .second-game-shown p{
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    margin-bottom: 20px;
+    margin-left: 20px;
+    color: #fff;
+}
+
 .addBtn{
     display: flex;
     justify-content: center;
