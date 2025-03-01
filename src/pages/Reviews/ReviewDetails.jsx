@@ -11,27 +11,32 @@ const ReviewDetails = () => {
   const [profile, setProfile] = useState({ id: "", name: "", email: "", role: "" });
 
   useEffect(() => {
+    // Fetch game details and reviews
     const fetchGameDetails = async () => {
       try {
+        // Get game details
         const gameResponse = await axios.get(`http://localhost:5000/api/games/${gameId}`);
         setGameDetails(gameResponse.data);
 
+        // Get reviews for the game
         const token = localStorage.getItem("token");
         const reviewsResponse = await axios.get(`http://localhost:5000/reviews/game/${gameId}`, {
           headers: { Authorization: `Bearer ${token}` },
         });
 
-        setReviews(reviewsResponse.data);
+        setReviews(reviewsResponse.data);  // Set reviews in state
       } catch (error) {
         console.error("Error fetching game details or reviews", error);
       }
     };
 
+    // Set user profile if logged in
     const user = JSON.parse(localStorage.getItem("user"));
     if (user) {
       setProfile({ id: user.id, name: user.name, email: user.email, role: user.role });
     }
 
+    // Fetch game details and reviews
     fetchGameDetails();
   }, [gameId]);
 
@@ -46,13 +51,12 @@ const ReviewDetails = () => {
       const response = await axios.post("http://localhost:5000/reviews/game", {
         id: gameId,  // Change from "game_id" to "id"
         review: newReview,
-    }, {
+      }, {
         headers: { Authorization: `Bearer ${token}` },
-    });
-    
+      });
 
-      setReviews([...reviews, response.data]);
-      setNewReview('');
+      setReviews([...reviews, response.data]);  // Update reviews with new one
+      setNewReview('');  // Clear review input
     } catch (error) {
       console.error("Error adding review:", error);
     }
@@ -70,8 +74,8 @@ const ReviewDetails = () => {
         headers: { Authorization: `Bearer ${token}` },
       });
 
-      setReviews(reviews.filter((review) => review.id !== reviewId));
-      alert(response.data.message);
+      setReviews(reviews.filter((review) => review.id !== reviewId));  // Remove deleted review
+      alert(response.data.message);  // Show success message
     } catch (error) {
       console.error("Error deleting review:", error);
       alert("Failed to delete review");
@@ -89,19 +93,21 @@ const ReviewDetails = () => {
       <div className="reviews-section">
         <h2>Reviews</h2>
         {reviews.length > 0 ? (
-          reviews.map((review) => (
-            <div key={review.id} className="review">
-              <p><span>Name:</span> {profile.name || "N/A"}</p>
-              <p><span>Email:</span> {profile.email || "N/A"}</p>
-              <p><span>Role:</span> {profile.role || "N/A"}</p>
-              <p>{review.review}</p>
-              {profile.id && (review.user_id === profile.id || profile.role === "admin") && (
-                <button onClick={() => handleDeleteReview(review.id)} className="delete-btn">
-                  Delete Review
-                </button>
-              )}
-            </div>
-          ))
+          reviews.map((review) => {
+            return (
+              <div key={review.id} className="review">
+                <p><span>Name:</span> {review.user_name || "N/A"}</p>
+                <p><span>Email:</span> {review.user_email || "N/A"}</p>
+                <p><span>Role:</span> {review.user_role || "N/A"}</p>
+                <p>{review.review}</p>
+                {profile.id && (review.user_id === profile.id || profile.role === "admin") && (
+                  <button onClick={() => handleDeleteReview(review.id)} className="delete-btn">
+                    Delete Review
+                  </button>
+                )}
+              </div>
+            );
+          })
         ) : (
           <p>No reviews yet.</p>
         )}

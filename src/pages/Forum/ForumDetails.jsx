@@ -112,9 +112,9 @@ const ForumDetails = () => {
         {comments.length > 0 ? (
           comments.map((comment) => (
             <div key={comment.id} className="comment">
-              <p><span>Name:</span> {profile.name || "N/A"}</p>
-              <p><span>Email:</span> {profile.email || "N/A"}</p>
-              <p><span>Role:</span> {profile.role || "N/A"}</p>
+              <p><span>Name:</span> {comment.user_name || "N/A"}</p>
+              <p><span>Email:</span> {comment.user_email|| "N/A"}</p>
+              <p><span>Role:</span> {comment.user_role || "N/A"}</p>
               <p>{comment.comment}</p>
               {/* Only show delete button if user is the owner of the comment or an admin */}
               {profile.id && (comment.user_id === profile.id || profile.role === "admin") && (

@@ -56,10 +56,19 @@ const AdminDashboard = () => {
           },
         }
       );
-      alert(response.data.message); // Show success message
+      if (response.status === 404) {
+        alert("Comment not found.");
+      } else if (response.status === 403) {
+        alert("You are not authorized to delete this comment.");
+      } else if (response.status === 200) {
+        alert("Comment deleted successfully!");
+      } else {
+        console.error("Error deleting comment");
+        alert("An error occurred while deleting the comment.");
+      }
     } catch (error) {
       console.error("Error deleting comment:", error);
-      alert("Failed to delete the comment");
+      alert("Request failed. Please try again.");
     }
   };
 
@@ -84,15 +93,21 @@ const AdminDashboard = () => {
         },
       });
 
-      if (response.ok) {
+      if (response.status === 404) {
+        alert("Tutorial not found.");
+      } else if (response.status === 403) {
+        alert("You are not authorized to delete this tutorial.");
+      } else if (response.ok) {
         console.log("Tutorial deleted successfully");
         alert("Tutorial deleted successfully!");
         navigate("/admin-dashboard");
       } else {
         console.error("Error deleting tutorial");
+        alert("An error occurred while deleting the tutorial.");
       }
     } catch (error) {
       console.error("Request failed:", error);
+      alert("Request failed. Please try again.");
     }
   };
 
