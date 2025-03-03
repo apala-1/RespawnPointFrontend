@@ -116,7 +116,7 @@ const userdashboard = () => {
                 <h1 className="forumText">Forum</h1>
                 <div className="inside-forum">
                     <i className="fa-solid fa-lock"></i>
-                    <p className="text" onClick={() => navigate("/signup")}>Sign Up to read and write other's posts</p>
+                    <p className="text" onClick={() => navigate("/forum")}>Go to forum</p>
                 </div>
             </div>
 
