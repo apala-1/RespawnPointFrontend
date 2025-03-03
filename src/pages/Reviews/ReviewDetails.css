@@ -1,0 +1,122 @@
+/* General page layout */
+.review-details-page {
+  font-family: 'Roboto', sans-serif;
+  padding: 20px;
+  background-color: #121212;
+  color: #fff;
+  text-align: center;
+}
+
+h1 {
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+  color: #00ffcc;
+}
+
+.featured-thumbnail {
+  width: 100%;
+  max-width: 400px;
+  border-radius: 8px;
+  margin-bottom: 20px;
+}
+
+/* Reviews section */
+.reviews-section {
+  max-width: 1200px;
+  margin: 0 auto;
+  background: rgba(0, 0, 0, 0.7);
+  padding: 20px;
+  border-radius: 12px;
+}
+
+h2 {
+  font-size: 2rem;
+  color: #00ffcc;
+  margin-bottom: 20px;
+}
+
+.review {
+  background: #1e1e1e;
+  padding: 15px;
+  margin: 10px 0;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 255, 204, 0.5);
+}
+
+.review p {
+  font-size: 1.1rem;
+  color: #ddd;
+  margin: 5px 0;
+}
+
+.review span {
+  font-weight: bold;
+  color: #00ffcc;
+}
+
+.delete-btn {
+  background-color: #ff4c4c;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  font-size: 1rem;
+  margin-top: 10px;
+}
+
+.delete-btn:hover {
+  background-color: #ff0000;
+}
+
+.add-review {
+  margin-top: 30px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.add-review textarea {
+  width: 80%;
+  height: 100px;
+  padding: 10px;
+  margin-bottom: 15px;
+  border-radius: 8px;
+  border: 1px solid #444;
+  background-color: #222;
+  color: #fff;
+  font-size: 1rem;
+  resize: none;
+  box-shadow: 0 0 5px rgba(0, 255, 204, 0.3);
+}
+
+.add-review button {
+  background-color: #00ffcc;
+  color: #000;
+  padding: 10px 20px;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  font-size: 1.1rem;
+}
+
+.add-review button:hover {
+  background-color: #00cc99;
+}
+
+@media (max-width: 768px) {
+  .featured-thumbnail {
+    max-width: 300px;
+  }
+
+  .add-review textarea {
+    width: 90%;
+  }
+
+  .delete-btn {
+    width: 100%;
+    margin-top: 15px;
+  }
+}
